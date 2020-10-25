@@ -1,0 +1,7 @@
+# Image dataset
+tf/dataset
+
+# Models that are not fully trained
+tf/*.h5
+
+tf/.ipynb_checkpoints
