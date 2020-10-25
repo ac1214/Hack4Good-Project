@@ -129,38 +129,45 @@ export default function CameraView({ navigation }) {
                   let title_text = null;
                   let body = null;
                   if (res.predicted_class == "cardboard") {
+                    title_text = "Cardboard"
                     title_text = "Found Cardboard!";
-                    body = "Cardboard can be placed in the recycling bin"
+                    body = "Cardboard can be placed in the recycling bin";
                     icon_src = require("../assets/box.png");
                   } else if (res.predicted_class == "glass") {
+                    title_text = "Glass"
                     title_text = "Found Glass!";
-                    body = "Glass can be placed in the recycling bin"
+                    body = "Glass can be placed in the recycling bin";
                     icon_src = require("../assets/glass.png");
                   } else if (res.predicted_class == "metal") {
+                    title_text = "Metal"
                     title_text = "Found Metal!";
-                    body = "Metal can be placed in the recycling bin"
+                    body = "Metal can be placed in the recycling bin";
                     icon_src = require("../assets/metal.png");
                   } else if (res.predicted_class == "organtic") {
+                    title_text = "Organic"
                     title_text = "Found Organic Waste!";
-                    body = "Organic Waste can be placed in the compost bin"
+                    body = "Organic Waste can be placed in the compost bin";
                     icon_src = require("../assets/organic.png");
                   } else if (res.predicted_class == "paper") {
+                    title_text = "Paper"
                     title_text = "Found Paper!";
-                    body = "Paper can be placed in the recycling bin"
+                    body = "Paper can be placed in the recycling bin";
                     icon_src = require("../assets/paper.png");
                   } else if (res.predicted_class == "plastic") {
+                    title_text = "Plastic"
                     title_text = "Found Plastic!";
-                    body = "Plastic can be placed in the recycling bin"
+                    body = "Plastic can be placed in the recycling bin";
                     icon_src = require("../assets/plastic.png");
                   } else if (res.predicted_class == "trash") {
+                    title_text = "Trash"
                     title_text = "Found Trash!";
-                    body = "Trash should be placed in the garbage bin"
+                    body = "Trash should be placed in the garbage bin";
                     icon_src = require("../assets/trash.png");
                   }
 
                   Popup.show({
                     type: "Success",
-                    title: res.predicted_class,
+                    title: title_text,
                     button: true,
                     textBody: body,
                     buttonText: "Ok",
@@ -233,12 +240,7 @@ export default function CameraView({ navigation }) {
                   width: "100%",
                 }}
               >
-                <Icon
-                  name="circle"
-                  size={80}
-                  type="entypo"
-                  color="#77dd77"
-                />
+                <Icon name="circle" size={80} type="entypo" color="#77dd77" />
               </View>
             </TouchableOpacity>
           </View>

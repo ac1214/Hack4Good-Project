@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Heatmaps</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=visualization&callback=initMap">
+        defer ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js">
+    </script>
+</head>
+
+<body>
+    <div id="selector">
+    </div>
+    <div id="floating-panel">
+        <button onclick="toggleRecycle()">Recycling</button>
+        <button onclick="toggleCompost()">Compost</button>
+        <button onclick="toggleGarbage()">Garbage</button>
+        <button onclick="changeGradient()">Change gradient</button>
+        <button onclick="changeRadius()">Change radius</button>
+        <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <div id="map"></div>
+</body>
+
+</html>

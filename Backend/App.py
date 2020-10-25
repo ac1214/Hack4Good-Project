@@ -10,6 +10,7 @@ import base64
 import json
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+import requests
 
 # init flask app
 app = Flask(__name__)
@@ -20,7 +21,9 @@ model = load_model("model.h5")
 # Define the class names in plain text so that we can return these values
 CLASS_NAMES = ['cardboard', 'glass', 'metal',
                'organtic', 'paper', 'plastic', 'trash']
-
+RECYCLE = ('cardboard', 'glass', 'metal', 'plastic', 'paper')
+TRASH = ('trash')
+COMPOST = ('organtic')
 
 def predict(img_path):
     """
@@ -65,6 +68,13 @@ def update():
 
     # Make a prediction with the model
     prediction = predict("sent_image.jpg")
+
+    if(prediction in RECYCLE):
+        requests.get('http://192.168.1.91:12388/recycle')
+    elif(prediction in TRASH):
+        requests.get('http://192.168.1.91:12388/garbage')
+    elif(prediction in COMPOST):
+        requests.get('http://192.168.1.91:12388/compost')
 
     # Return the Prediction
     return json.dumps({"predicted_class": prediction})
